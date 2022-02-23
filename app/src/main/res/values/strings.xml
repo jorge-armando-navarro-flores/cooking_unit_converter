@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">cooking_unit_converter</string>
+    <string name="units_quantity">Units quantity</string>
+    <string name="tablespoons">Tablespoons</string>
+    <string name="cups">Cups</string>
+    <string name="milliliters">Milliliters</string>
+    <string name="liquid_ounces">Liquid Ounces</string>
+    <string name="convert_units">Convert units</string>
+    <string name="conversion">Conversion</string>
+</resources>
