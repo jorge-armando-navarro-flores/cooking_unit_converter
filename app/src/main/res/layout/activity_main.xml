@@ -7,22 +7,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
+    <ImageView
+        android:id="@+id/icon_milliliters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/ic_baseline_local_drink_24"
+        app:layout_constraintTop_toTopOf="@id/milliliters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/milliliters"/>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/milliliters"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:hint="@string/milliliters"
-        android:inputType="numberDecimal"
+        android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/icon_milliliters">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/milliliters_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/icon_unit_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_compare_arrows_24"
+        app:layout_constraintTop_toTopOf="@id/unit_question"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/unit_question"/>
+
+    <TextView
+        android:id="@+id/unit_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What unit do you want to convert in?"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/icon_milliliters"
+        app:layout_constraintTop_toBottomOf="@id/milliliters"/>
 
     <RadioGroup
         android:id="@+id/unit_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checkedButton="@id/option_to_tablespoons"
-        app:layout_constraintTop_toBottomOf="@id/milliliters"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/unit_question"
+        app:layout_constraintStart_toStartOf="@id/unit_question">
 
         <RadioButton
             android:id="@+id/option_to_tablespoons"
@@ -42,15 +79,24 @@
 
     </RadioGroup>
 
+    <ImageView
+        android:id="@+id/icon_round_conversion_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_call_made_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/round_conversion_switch"
+        app:layout_constraintBottom_toBottomOf="@id/round_conversion_switch"/>
 
-
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/round_conversion_switch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:checked="true"
         android:text="@string/round_conversion"
+        android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@id/unit_options"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_round_conversion_switch"
         app:layout_constraintEnd_toEndOf="parent"/>
     <Button
         android:id="@+id/convert_units_button"
@@ -58,7 +104,7 @@
         android:layout_height="wrap_content"
         android:text="@string/convert_units"
         app:layout_constraintTop_toBottomOf="@id/round_conversion_switch"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/round_conversion_switch"
         app:layout_constraintEnd_toEndOf="parent" />
     <TextView
         android:id="@+id/conversion"

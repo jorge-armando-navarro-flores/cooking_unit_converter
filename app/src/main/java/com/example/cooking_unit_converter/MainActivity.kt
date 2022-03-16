@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun convertUnits() {
-        val stringInTextField = binding.milliliters.text.toString()
+        val stringInTextField = binding.millilitersEditText.text.toString()
         val units = stringInTextField.toDoubleOrNull()
         if (units == null || units == 0.0) {
             displayUnits(0.0)
